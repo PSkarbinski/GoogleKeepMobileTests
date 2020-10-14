@@ -1,0 +1,29 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+*.log
+/target/generated-sources/
+/target/generated-test-sources/
+/target/maven-status/
+/target/surefire-reports/
+
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# Eclipse
+.classpath
+.project
+.settings/
+ 
+# Intellij
+.idea/
+*.iml
+*.iws
+ 
+# Mac
+.DS_Store
+ 
+# Maven
+log/
+target/
