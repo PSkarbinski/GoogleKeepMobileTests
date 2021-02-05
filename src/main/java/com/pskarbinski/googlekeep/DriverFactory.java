@@ -1,4 +1,4 @@
-package com.twoupdigital.googlekeep;
+package com.pskarbinski.googlekeep;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;

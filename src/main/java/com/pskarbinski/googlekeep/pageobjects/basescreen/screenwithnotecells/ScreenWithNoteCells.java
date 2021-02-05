@@ -1,8 +1,9 @@
-package com.twoupdigital.googlekeep.pageobjects.basescreen.screenwithnotecells;
+package com.pskarbinski.googlekeep.pageobjects.basescreen.screenwithnotecells;
 
-import com.twoupdigital.googlekeep.pageobjects.basescreen.NoteScreen;
-import com.twoupdigital.googlekeep.pageobjects.basescreen.BaseScreen;
-import com.twoupdigital.googlekeep.utils.MobileActions;
+import com.pskarbinski.googlekeep.pageobjects.basescreen.BaseScreen;
+import com.pskarbinski.googlekeep.utils.Waits;
+import com.pskarbinski.googlekeep.pageobjects.basescreen.NoteScreen;
+import com.pskarbinski.googlekeep.utils.MobileActions;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -13,9 +14,8 @@ import org.openqa.selenium.remote.RemoteWebElement;
 import java.util.List;
 import java.util.Objects;
 
-import static com.twoupdigital.googlekeep.utils.Finders.findElementContaining;
-import static com.twoupdigital.googlekeep.utils.Waits.waitUntilAllElementsVisible;
-import static com.twoupdigital.googlekeep.utils.Waits.waitUntilElementClickable;
+import static com.pskarbinski.googlekeep.utils.Finders.findElementContaining;
+import static com.pskarbinski.googlekeep.utils.Waits.waitUntilElementClickable;
 
 public abstract class ScreenWithNoteCells extends BaseScreen {
 
@@ -41,7 +41,7 @@ public abstract class ScreenWithNoteCells extends BaseScreen {
 
     public MobileElement getNoteTitleContaining(String title) {
         try {
-            waitUntilAllElementsVisible(noteTitlesList);
+            Waits.waitUntilAllElementsVisible(noteTitlesList);
         } catch (TimeoutException e) {
             // For some scenarios there shouldn't be any notes
         }
@@ -54,7 +54,7 @@ public abstract class ScreenWithNoteCells extends BaseScreen {
     }
 
     public NoteScreen tapNoteTitled(String title) {
-        waitUntilAllElementsVisible(noteTitlesList);
+        Waits.waitUntilAllElementsVisible(noteTitlesList);
 
         if (!noteTitlesList.isEmpty()) {
             Objects.requireNonNull(findElementContaining(title, noteTitlesList)).click();
@@ -66,7 +66,7 @@ public abstract class ScreenWithNoteCells extends BaseScreen {
 
     public MobileElement getNoteDescContaining(String desc) {
         try {
-            waitUntilAllElementsVisible(noteDescList);
+            Waits.waitUntilAllElementsVisible(noteDescList);
         } catch (TimeoutException e) {
             // For some scenarios there shouldn't be any notes
         }
@@ -80,7 +80,7 @@ public abstract class ScreenWithNoteCells extends BaseScreen {
 
     public ScreenWithNoteCells deleteAllNotes() {
         try {
-            waitUntilAllElementsVisible(noteTitlesList);
+            Waits.waitUntilAllElementsVisible(noteTitlesList);
         } catch (TimeoutException e) {
             // For some scenarios there shouldn't be any notes
         }
@@ -98,8 +98,8 @@ public abstract class ScreenWithNoteCells extends BaseScreen {
                         .forEach(RemoteWebElement::click);
             }
 
-            waitUntilElementClickable(dotsMenuBtn).click();
-            waitUntilElementClickable(dotsMenuDeleteBtn).click();
+            Waits.waitUntilElementClickable(dotsMenuBtn).click();
+            Waits.waitUntilElementClickable(dotsMenuDeleteBtn).click();
         }
 
         return this;

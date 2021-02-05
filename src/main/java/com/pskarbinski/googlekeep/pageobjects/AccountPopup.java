@@ -1,7 +1,9 @@
-package com.twoupdigital.googlekeep.pageobjects;
+package com.pskarbinski.googlekeep.pageobjects;
 
-import com.twoupdigital.googlekeep.pageobjects.basescreen.screenwithnotecells.HomeScreen;
-import com.twoupdigital.googlekeep.utils.Helpers;
+import com.pskarbinski.googlekeep.pageobjects.basescreen.screenwithnotecells.HomeScreen;
+import com.pskarbinski.googlekeep.utils.Finders;
+import com.pskarbinski.googlekeep.utils.Waits;
+import com.pskarbinski.googlekeep.utils.Helpers;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -13,9 +15,6 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static com.twoupdigital.googlekeep.utils.Finders.findElementContaining;
-import static com.twoupdigital.googlekeep.utils.Waits.*;
 
 public class AccountPopup {
 
@@ -53,7 +52,7 @@ public class AccountPopup {
 
     public HomeScreen closeAccPopupIfVisible() {
         try {
-            waitUntilElementClickable(xButton).click();
+            Waits.waitUntilElementClickable(xButton).click();
         } catch (TimeoutException e) {
             // For some scenarios the button is not visible and doesn't need to be clicked
         }
@@ -64,7 +63,7 @@ public class AccountPopup {
         if (driver.getClass().getTypeName().equals("io.appium.java_client.ios.IOSDriver")) {
             try {
                 // on iOS some scenarios require expanding the account list
-                waitUntilElementClickable(currentAcc).click();
+                Waits.waitUntilElementClickable(currentAcc).click();
             } catch (TimeoutException e) {
                 // For some scenarios the button is not visible and doesn't need to be clicked
             }
@@ -72,7 +71,7 @@ public class AccountPopup {
 
         List<String> accounts = new ArrayList<>();
 
-        waitUntilAllElementsVisible(loggedInAccounts);
+        Waits.waitUntilAllElementsVisible(loggedInAccounts);
 
         if (!loggedInAccounts.isEmpty()) {
             // Using split to support the element format on iOS
@@ -89,19 +88,19 @@ public class AccountPopup {
 
     public HomeScreen logInIfAccNotPresent(String login, String password) {
         if (driver.getClass().getTypeName().equals("io.appium.java_client.ios.IOSDriver")) {
-            waitUntilElementClickable(currentAcc).click();
+            Waits.waitUntilElementClickable(currentAcc).click();
         }
 
-        waitUntilAllElementsVisible(loggedInAccounts);
+        Waits.waitUntilAllElementsVisible(loggedInAccounts);
 
-        MobileElement correctAcc = findElementContaining(login, loggedInAccounts);
+        MobileElement correctAcc = Finders.findElementContaining(login, loggedInAccounts);
 
         if (correctAcc == null) {
             // For scenarios with other accounts logged in
             try {
-                waitUntilElementClickable(addAccBtn).click();
+                Waits.waitUntilElementClickable(addAccBtn).click();
                 if (driver.getClass().getTypeName().equals("io.appium.java_client.ios.IOSDriver")) {
-                    waitUntilElementClickable(continueBtn).click();
+                    Waits.waitUntilElementClickable(continueBtn).click();
                 }
             } catch (TimeoutException e) {
                 // For other scenarios the buttons are not visible and don't need to be clicked
@@ -109,9 +108,9 @@ public class AccountPopup {
             if (driver.getClass().getTypeName().equals("io.appium.java_client.ios.IOSDriver")) {
                 try {
                     // Some scenarios require expanding the account list again
-                    waitUntilElementClickable(currentAcc).click();
-                    waitUntilElementClickable(addAccBtn).click();
-                    waitUntilElementClickable(continueBtn).click();
+                    Waits.waitUntilElementClickable(currentAcc).click();
+                    Waits.waitUntilElementClickable(addAccBtn).click();
+                    Waits.waitUntilElementClickable(continueBtn).click();
                 } catch (TimeoutException e) {
                     // For other scenarios the button is not visible and doesn't need to be clicked
                 }
@@ -130,29 +129,29 @@ public class AccountPopup {
         if (driver.getClass().getTypeName().equals("io.appium.java_client.ios.IOSDriver")) {
             try {
                 // On iOS click current account to expand list of logged in accounts
-                waitUntilElementClickable(currentAcc).click();
+                Waits.waitUntilElementClickable(currentAcc).click();
             } catch (TimeoutException e) {
                 // For other scenarios the button is not visible and doesn't need to be clicked
             }
         }
 
-        waitUntilAllElementsVisible(loggedInAccounts);
+        Waits.waitUntilAllElementsVisible(loggedInAccounts);
 
-        MobileElement correctAcc = findElementContaining(login, loggedInAccounts);
+        MobileElement correctAcc = Finders.findElementContaining(login, loggedInAccounts);
 
         // For scenarios where the correct account is logged in
         if (correctAcc != null) {
             if (driver.getClass().getTypeName().equals("io.appium.java_client.android.AndroidDriver")) {
-                waitUntilElementClickable(manageAccountsBtn).click();
+                Waits.waitUntilElementClickable(manageAccountsBtn).click();
             } else if (driver.getClass().getTypeName().equals("io.appium.java_client.ios.IOSDriver")
-                    && !waitUntilElementVisible(currentAcc).getText().contains(login)) {
+                    && !Waits.waitUntilElementVisible(currentAcc).getText().contains(login)) {
                 // Case 1 for iOS, where the account is not the current one
-                waitUntilElementClickable(correctAcc).click();
+                Waits.waitUntilElementClickable(correctAcc).click();
                 new HomeScreen(driver).tapUserIcon();
-                waitUntilElementClickable(googleAccountBtn).click();
+                Waits.waitUntilElementClickable(googleAccountBtn).click();
             } else {
                 // Case 2 for iOS where the account is the current one
-                waitUntilElementClickable(googleAccountBtn).click();
+                Waits.waitUntilElementClickable(googleAccountBtn).click();
             }
             Helpers.logOut(login);
         }

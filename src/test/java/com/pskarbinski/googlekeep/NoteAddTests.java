@@ -1,17 +1,17 @@
-package com.twoupdigital.googlekeep;
+package com.pskarbinski.googlekeep;
 
-import com.twoupdigital.googlekeep.pageobjects.basescreen.screenwithnotecells.HomeScreen;
+import com.pskarbinski.googlekeep.pageobjects.basescreen.screenwithnotecells.HomeScreen;
+import com.pskarbinski.googlekeep.utils.Helpers;
 import org.junit.jupiter.api.Test;
 
-import static com.twoupdigital.googlekeep.utils.Helpers.generateRandomAlphanumericStringWithLengthBetween;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NoteAddTests extends BaseTest {
 
     @Test
     void t001SimpleNoteAddsCorrectly() {
-        String correctTitle = generateRandomAlphanumericStringWithLengthBetween(10, 16);
-        String correctNote = generateRandomAlphanumericStringWithLengthBetween(40, 60);
+        String correctTitle = Helpers.generateRandomAlphanumericStringWithLengthBetween(10, 16);
+        String correctNote = Helpers.generateRandomAlphanumericStringWithLengthBetween(40, 60);
 
         new HomeScreen(driver)
                 .tapAddNote()

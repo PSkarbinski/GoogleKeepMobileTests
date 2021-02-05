@@ -1,4 +1,4 @@
-package com.twoupdigital.googlekeep.pageobjects.basescreen.screenwithnotecells;
+package com.pskarbinski.googlekeep.pageobjects.basescreen.screenwithnotecells;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;

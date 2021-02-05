@@ -1,8 +1,8 @@
-package com.twoupdigital.googlekeep;
+package com.pskarbinski.googlekeep;
 
-import com.twoupdigital.googlekeep.pageobjects.basescreen.screenwithnotecells.HomeScreen;
-import com.twoupdigital.googlekeep.utils.BaseHelper;
-import com.twoupdigital.googlekeep.utils.Waits;
+import com.pskarbinski.googlekeep.pageobjects.basescreen.screenwithnotecells.HomeScreen;
+import com.pskarbinski.googlekeep.utils.BaseHelper;
+import com.pskarbinski.googlekeep.utils.Waits;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.junit.jupiter.api.AfterAll;

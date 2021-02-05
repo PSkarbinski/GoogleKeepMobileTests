@@ -1,7 +1,7 @@
-package com.twoupdigital.googlekeep;
+package com.pskarbinski.googlekeep;
 
-import com.twoupdigital.googlekeep.pageobjects.AccountPopup;
-import com.twoupdigital.googlekeep.pageobjects.basescreen.screenwithnotecells.HomeScreen;
+import com.pskarbinski.googlekeep.pageobjects.AccountPopup;
+import com.pskarbinski.googlekeep.pageobjects.basescreen.screenwithnotecells.HomeScreen;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

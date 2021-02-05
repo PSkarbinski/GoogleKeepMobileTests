@@ -1,12 +1,13 @@
-package com.twoupdigital.googlekeep.pageobjects.basescreen;
+package com.pskarbinski.googlekeep.pageobjects.basescreen;
 
-import com.twoupdigital.googlekeep.pageobjects.basescreen.screenwithnotecells.HomeScreen;
+import com.pskarbinski.googlekeep.pageobjects.basescreen.screenwithnotecells.HomeScreen;
+import com.pskarbinski.googlekeep.utils.Waits;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
-import static com.twoupdigital.googlekeep.utils.Waits.waitUntilElementClickable;
+import static com.pskarbinski.googlekeep.utils.Waits.waitUntilElementClickable;
 
 public class NoteScreen extends BaseScreen {
 
@@ -39,34 +40,34 @@ public class NoteScreen extends BaseScreen {
     }
 
     public NoteScreen enterTitle(String title) {
-        waitUntilElementClickable(titleBox).clear();
-        waitUntilElementClickable(titleBox).sendKeys(title);
+        Waits.waitUntilElementClickable(titleBox).clear();
+        Waits.waitUntilElementClickable(titleBox).sendKeys(title);
         return this;
     }
 
     public NoteScreen enterNote(String note) {
-        waitUntilElementClickable(noteBox).clear();
-        waitUntilElementClickable(noteBox).sendKeys(note);
+        Waits.waitUntilElementClickable(noteBox).clear();
+        Waits.waitUntilElementClickable(noteBox).sendKeys(note);
         return this;
     }
 
     public HomeScreen tapBack() {
-        waitUntilElementClickable(backBtn).click();
+        Waits.waitUntilElementClickable(backBtn).click();
         return new HomeScreen(driver);
     }
 
     public NoteScreen tapDotsMenu() {
-        waitUntilElementClickable(dotsMenuBtn).click();
+        Waits.waitUntilElementClickable(dotsMenuBtn).click();
         return this;
     }
 
     public HomeScreen tapDelete() {
-        waitUntilElementClickable(deleteBtn).click();
+        Waits.waitUntilElementClickable(deleteBtn).click();
         return new HomeScreen(driver);
     }
 
     public HomeScreen tapArchive() {
-        waitUntilElementClickable(archiveBtn).click();
+        Waits.waitUntilElementClickable(archiveBtn).click();
         return new HomeScreen(driver);
     }
 

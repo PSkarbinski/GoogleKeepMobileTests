@@ -1,7 +1,8 @@
-package com.twoupdigital.googlekeep.pageobjects.basescreen;
+package com.pskarbinski.googlekeep.pageobjects.basescreen;
 
-import com.twoupdigital.googlekeep.pageobjects.basescreen.screenwithnotecells.ArchiveScreen;
-import com.twoupdigital.googlekeep.pageobjects.basescreen.screenwithnotecells.TrashBinScreen;
+import com.pskarbinski.googlekeep.pageobjects.basescreen.screenwithnotecells.ArchiveScreen;
+import com.pskarbinski.googlekeep.utils.Waits;
+import com.pskarbinski.googlekeep.pageobjects.basescreen.screenwithnotecells.TrashBinScreen;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -9,7 +10,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static com.twoupdigital.googlekeep.utils.Waits.waitUntilElementClickable;
+import static com.pskarbinski.googlekeep.utils.Waits.waitUntilElementClickable;
 
 public abstract class BaseScreen {
 
@@ -33,21 +34,21 @@ public abstract class BaseScreen {
     }
 
     public MobileElement getNavMenuBtn() {
-        return waitUntilElementClickable(navMenuBtn);
+        return Waits.waitUntilElementClickable(navMenuBtn);
     }
 
     public BaseScreen tapNavMenu() {
-        waitUntilElementClickable(navMenuBtn).click();
+        Waits.waitUntilElementClickable(navMenuBtn).click();
         return this;
     }
 
     public ArchiveScreen tapNavMenuArchive() {
-        waitUntilElementClickable(navMenuArchiveBtn).click();
+        Waits.waitUntilElementClickable(navMenuArchiveBtn).click();
         return new ArchiveScreen(driver);
     }
 
     public TrashBinScreen tapNavMenuTrashBinBtn() {
-        waitUntilElementClickable(navMenuTrashBinBtn).click();
+        Waits.waitUntilElementClickable(navMenuTrashBinBtn).click();
         return new TrashBinScreen(driver);
     }
 

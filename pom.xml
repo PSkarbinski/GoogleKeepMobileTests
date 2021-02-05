@@ -7,8 +7,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <groupId>com.twoupdigital.googlekeep</groupId>
-    <artifactId>TwoUpMobileTask</artifactId>
+    <groupId>com.pskarbinski.googlekeep</groupId>
+    <artifactId>GoogleKeepMobileTests</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <build>

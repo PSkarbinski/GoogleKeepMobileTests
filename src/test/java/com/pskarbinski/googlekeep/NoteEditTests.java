@@ -1,19 +1,19 @@
-package com.twoupdigital.googlekeep;
+package com.pskarbinski.googlekeep;
 
-import com.twoupdigital.googlekeep.pageobjects.basescreen.screenwithnotecells.HomeScreen;
+import com.pskarbinski.googlekeep.pageobjects.basescreen.screenwithnotecells.HomeScreen;
+import com.pskarbinski.googlekeep.utils.Helpers;
 import org.junit.jupiter.api.Test;
 
-import static com.twoupdigital.googlekeep.utils.Helpers.generateRandomAlphanumericStringWithLengthBetween;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NoteEditTests extends BaseTest {
 
     @Test
     void t002NoteEditsCorrectly() {
-        String correctTitle = generateRandomAlphanumericStringWithLengthBetween(10, 16);
-        String correctNote = generateRandomAlphanumericStringWithLengthBetween(40, 60);
-        String correctEditedTitle = generateRandomAlphanumericStringWithLengthBetween(7, 9);
-        String correctEditedNote = generateRandomAlphanumericStringWithLengthBetween(30, 39);
+        String correctTitle = Helpers.generateRandomAlphanumericStringWithLengthBetween(10, 16);
+        String correctNote = Helpers.generateRandomAlphanumericStringWithLengthBetween(40, 60);
+        String correctEditedTitle = Helpers.generateRandomAlphanumericStringWithLengthBetween(7, 9);
+        String correctEditedNote = Helpers.generateRandomAlphanumericStringWithLengthBetween(30, 39);
 
         new HomeScreen(driver)
                 .tapAddNote()
